@@ -7,34 +7,37 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-y: auto;
 }
 
 .container {
-    width: 90%;
-    max-width: 800px;
+    width: 95%;
+    max-width: 480px; /* Batas lebar untuk ponsel */
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    margin: 20px 0;
 }
 
 header {
     background-color: #4682b4;
     color: white;
-    padding: 20px;
+    padding: 15px; /* Mengurangi padding untuk ruang lebih */
     text-align: center;
 }
 
 h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 2em; /* Mengurangi ukuran font untuk tampilan ponsel */
+    word-wrap: break-word; /* Agar teks panjang terpotong ke baris baru */
 }
 
 .content {
-    padding: 20px;
+    padding: 10px; /* Mengurangi padding untuk tampilan lebih rapi */
     display: grid;
-    gap: 20px;
+    gap: 15px;
 }
 
 .video-card {
@@ -49,34 +52,37 @@ video {
 .message-card {
     background-color: #f5f5f5;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
+    max-height: none;
+    overflow-y: auto;
     transition: transform 0.3s ease-in-out;
-}
-
-.message-card:hover {
-    transform: scale(1.05);
 }
 
 .message-card h2 {
     color: #4682b4;
     margin-top: 0;
+    font-size: 1.5em; /* Mengurangi ukuran font judul */
 }
 
 .button-container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px; /* Mengurangi padding */
+    gap: 10px; /* Menambahkan ruang antara tombol */
+    flex-wrap: wrap; /* Mengizinkan tombol membungkus ke baris baru jika terlalu banyak */
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 1.2em;
+    padding: 8px 16px; /* Mengurangi padding tombol */
+    font-size: 1em; /* Mengurangi ukuran font tombol */
     background-color: #4682b4;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    flex: 1 1 45%; /* Mengatur ukuran tombol agar proporsional di ponsel */
+    margin-bottom: 10px; /* Menambahkan ruang di bawah tombol */
 }
 
 button:hover {
@@ -88,7 +94,7 @@ footer {
     color: white;
     padding: 10px;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1em; /* Mengurangi ukuran font di footer */
 }
 
 /* Special style for the moving button */
@@ -96,8 +102,11 @@ footer {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+    flex-wrap: wrap; /* Mengizinkan tombol membungkus ke baris baru */
 }
 
 #noBtn {
-    position: absolute;
+    position: relative; /* Membuat tombol tetap dalam konteks elemen induknya */
+    transform: translate(0, 0); /* Mengatur ulang posisi awal */
+    transition: transform 0.3s ease-in-out; /* Menambahkan transisi pada pergerakan */
 }
